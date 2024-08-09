@@ -1,15 +1,23 @@
-.taskData .data:nth-child(even) {
-    background-color: #ADDFFF;
+.lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.taskData:nth-child(even) {
+    background-color: rgb(242, 239, 239);
+    color: black;
 }
-.taskData .data:nth-child(odd) {
-    background-color: #E6E6FA;
+.taskData:nth-child(odd) {
+    background-color: #292524;
+    color: white;
 }
 
 .roundedDiv {
     width: 20px;
     height: 20px;
-    border: 2px solid green; /* Green border */
-    border-radius: 50%; /* Rounded shape */
+    border: 2px solid rgb(182, 47, 47);
+    border-radius: 50%;
     margin-right: 15px;
   }
   

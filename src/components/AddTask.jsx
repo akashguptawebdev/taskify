@@ -7,9 +7,20 @@ const AddTask = ({ setTaskAdded }) => {
   const [currDate, setCurrDate] = useState("");
 
   useEffect(() => {
-    let date = new Date();
-    let formateDate = date.toString().slice(0, 24);
-    setCurrDate(formateDate);
+
+let date = new Date();
+let options = {
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    hour12: true, 
+    weekday: 'short',
+    year: 'numeric',
+    month: 'short',
+    
+};
+let formateDate = new Intl.DateTimeFormat('en-US', options).format(date);
+setCurrDate(formateDate);
   }, []);
 
   const HandleAddTask = async () => {
@@ -60,7 +71,7 @@ const AddTask = ({ setTaskAdded }) => {
         <div className="taskDetails border p-5 rounded-md w-full ">
           <div className="mb-3 ">
             <input
-              className="outline-none font-medium w-full"
+              className="outline-none font-medium w-full p-2 bg-[#ccfbf1] rounded-md"
               value={task}
               type="text"
               placeholder="Task name"
@@ -69,7 +80,7 @@ const AddTask = ({ setTaskAdded }) => {
           </div>
           <div>
             <input
-              className="outline-none  w-full"
+              className="outline-none  w-full p-2 rounded-md bg-[#ccfbf1]"
               type="text"
               value={description}
               placeholder="Description"
@@ -82,7 +93,7 @@ const AddTask = ({ setTaskAdded }) => {
       <div className="border rounded-md border-t-0  text-end px-5 py-2">
         <button
           className={`${
-            !task ? " bg-orange-300" : " bg-green-400 text-white"
+            !task ? " bg-slate-300" : " bg-[#ccfbf1]  hover:shadow-slate-400 shadow-sm text-black"
           }  py-1 px-8 rounded-full font-bold`}
           onClick={HandleAddTask}
           disabled={!task}

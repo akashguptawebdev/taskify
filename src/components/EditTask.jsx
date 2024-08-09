@@ -7,16 +7,26 @@ const EditTask = ({ task, setShowEdit, listItem, setTaskList }) => {
 
   useEffect(() => {
     let date = new Date();
-    let formateDate = date.toString().slice(0, 24);
+    let options = {
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: true,
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+    };
+    let formateDate = new Intl.DateTimeFormat("en-US", options).format(date);
     setCurrDate(formateDate);
   }, []);
+
   const handleEditTask = async () => {
     // Step 1: Retrieve and parse the data from localStorage
     let storedData = JSON.parse(localStorage.getItem("TaskData"));
 
     // Step 2: Find the object you want to edit by taskId
     let taskIdToEdit = listItem.taskId; // Replace with the actual taskId you want to edit
-    
+
     let updatedTask = {
       taskId: taskIdToEdit,
       task: title,
