@@ -1,0 +1,15 @@
+.taskData .data:nth-child(even) {
+    background-color: #ADDFFF;
+}
+.taskData .data:nth-child(odd) {
+    background-color: #E6E6FA;
+}
+
+.roundedDiv {
+    width: 20px;
+    height: 20px;
+    border: 2px solid green; /* Green border */
+    border-radius: 50%; /* Rounded shape */
+    margin-right: 15px;
+  }
+  
