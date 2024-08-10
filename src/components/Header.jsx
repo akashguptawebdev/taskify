@@ -8,7 +8,7 @@ const Header = () => {
         TASKIFY
       </div>
       <div>
-        <h2>Home</h2>
+      <a href="/"><h2 >Home</h2></a>  
       </div>
     </div>
   );
