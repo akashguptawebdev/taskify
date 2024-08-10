@@ -65,10 +65,10 @@ const ShowTask = ({ taskList, setTaskDeleted, setTaskList }) => {
             <div className="data rounded-full border px-5 mb-5 flex justify-between items-center">
               <div className="py-2 flex justify-center items-center">
                 <div
-                  className="roundedDiv w-4 h-4 rounded-[50%] cursor-pointer"
+                  className="roundedDiv w-5 h-5 rounded-[50%] cursor-pointer"
                   onClick={() => HandleCompleteTask(listItem)}
                 >
-                  {listItem.taskCompleted ? <img src="/icons8-tick.svg" /> : ""}
+                  {listItem.taskCompleted ? <img src="/images.png" className="rounded-full"  /> : ""}
                 </div>
                 <div>
                   <h6 className="font-bold  text-sm  lato-regular">
