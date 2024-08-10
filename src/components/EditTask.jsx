@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 
 const EditTask = ({ task, setShowEdit, listItem, setTaskList }) => {
+  // Initialize state variables for task title, description, and current date
   const [title, setTitle] = useState(listItem?.task || "");
   const [description, setDescription] = useState(listItem?.description || "");
   const [currDate, setCurrDate] = useState("");
 
   useEffect(() => {
+    // Set the current date and time in the  format
     let date = new Date();
     let options = {
       hour: "numeric",
@@ -16,41 +18,44 @@ const EditTask = ({ task, setShowEdit, listItem, setTaskList }) => {
       year: "numeric",
       month: "short",
     };
-    let formateDate = new Intl.DateTimeFormat("en-US", options).format(date);
-    setCurrDate(formateDate);
+    let formattedDate = new Intl.DateTimeFormat("en-US", options).format(date);
+    setCurrDate(formattedDate);
   }, []);
 
   const handleEditTask = async () => {
-    // Step 1: Retrieve and parse the data from localStorage
+    // Step 1: Retrieve and parse the existing tasks from localStorage
     let storedData = JSON.parse(localStorage.getItem("TaskData"));
 
-    // Step 2: Find the object you want to edit by taskId
-    let taskIdToEdit = listItem.taskId; // Replace with the actual taskId you want to edit
+    // Step 2: Identify the task to be edited by taskId
+    let taskIdToEdit = listItem.taskId;
 
+    // Prepare the updated task object with the new details
     let updatedTask = {
       taskId: taskIdToEdit,
       task: title,
       description: description,
-      currDate: currDate, // Update the date or any other property
+      currDate: currDate, // Update the task's date
     };
 
-    // Step 3: Update the object in the array
+    // Step 3: Update the task in the stored data array
     storedData = storedData.map((item) =>
       item.taskId === taskIdToEdit ? { ...item, ...updatedTask } : item
     );
 
-    // Step 4: Save the updated array back to localStorage
+    // Step 4: Save the updated tasks array back to localStorage
     localStorage.setItem("TaskData", JSON.stringify(storedData));
+
+    // Close the edit form after saving
     setShowEdit(listItem);
 
-    console.log("Updated data:", storedData);
+    // Update the task list in the parent component to re-render the UI
     setTaskList(storedData);
   };
 
   return (
     <div>
       <div className="TaskList-Container flex justify-center w-full">
-        <div className="taskDetails  border p-5 rounded-md w-full">
+        <div className="taskDetails border p-5 rounded-md w-full">
           <div className="mb-3">
             <input
               className="outline-none font-medium w-full text-black px-2 rounded-lg"
@@ -77,7 +82,7 @@ const EditTask = ({ task, setShowEdit, listItem, setTaskList }) => {
             !title ? "bg-red-500" : "bg-green-800"
           } text-white py-1 px-8 rounded-full font-bold cursor-pointer`}
           onClick={handleEditTask}
-          disabled={!title}
+          disabled={!title} // Disable the button if the title is empty
         >
           Edit Task
         </button>

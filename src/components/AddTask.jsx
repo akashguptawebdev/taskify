@@ -1,67 +1,63 @@
 import React, { useEffect, useState } from "react";
 
 const AddTask = ({ setTaskAdded }) => {
+  // State variables for task details, ID, and current date
   const [task, setTask] = useState("");
   const [description, setDescription] = useState("");
   const [taskId, setTaskId] = useState();
   const [currDate, setCurrDate] = useState("");
 
   useEffect(() => {
-
-let date = new Date();
-let options = {
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-    hour12: true, 
-    weekday: 'short',
-    year: 'numeric',
-    month: 'short',
-    
-};
-let formateDate = new Intl.DateTimeFormat('en-US', options).format(date);
-setCurrDate(formateDate);
+    // Generate and format the current date and time
+    let date = new Date();
+    let options = {
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: true, 
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+    };
+    let formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
+    setCurrDate(formattedDate);
   }, []);
 
   const HandleAddTask = async () => {
-    // To generate Current Date and Time
-
-    // To generate Random Number
+    // Generate a random task ID
     let random = Math.floor(Math.random() * 1000);
-
     let id = random + currDate.slice(23, 25) + currDate.slice(19, 21);
     setTaskId(id);
 
-    // taskData Object
+    // Create the task object with all necessary details
     let listItem = {
       taskId: taskId,
       task: task,
       description: description,
       currDate: currDate,
-      taskCompleted:false,
+      taskCompleted: false,
     };
 
     saveTask(listItem);
 
-    // Clear Input Field
+    // Clear input fields after task is added
     setTask("");
     setDescription("");
   };
 
   const saveTask = (listItem) => {
-    // Fetching the existing data from localStorage and parsing it back into an object/array
+    // Fetch existing tasks from localStorage
     let getLocalData = JSON.parse(localStorage.getItem("TaskData"));
-    console.log("get data", getLocalData);
 
-    // Updating localStorage with the new list item
-    {
-      getLocalData
-        ? localStorage.setItem(
-            "TaskData",
-            JSON.stringify([...getLocalData, listItem])
-          )
-        : localStorage.setItem("TaskData", JSON.stringify([listItem]));
-    }
+    // Update localStorage with the new task
+    getLocalData
+      ? localStorage.setItem(
+          "TaskData",
+          JSON.stringify([...getLocalData, listItem])
+        )
+      : localStorage.setItem("TaskData", JSON.stringify([listItem]));
+
+    // Notify parent component about the new task addition
     setTaskAdded(listItem);
   };
 
@@ -88,14 +84,13 @@ setCurrDate(formateDate);
             />
           </div>
         </div>
-        
       </div>
 
-      <div className=" rounded-md border-t-0  text-end px-5 py-2">
+      <div className="rounded-md border-t-0 text-end px-5 py-2">
         <button
           className={`${
             !task ? " bg-slate-300 text-black"  : " bg-[#d57a25]  hover:shadow-slate-400 shadow-sm text-white"
-          }  py-1 px-8 rounded-full font-bold`}
+          } py-1 px-8 rounded-full font-bold`}
           onClick={HandleAddTask}
           disabled={!task}
         >
