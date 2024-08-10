@@ -62,7 +62,7 @@ const AddTask = ({ setTaskAdded }) => {
   };
 
   return (
-    <div className="py-10 px-8 ">
+    <div className="py-10 px-8 md:px-20 ">
       <div className="TaskList-Container bg-indigo-200 rounded-lg flex justify-center w-full">
         <div className="taskDetails border p-5 rounded-md w-full ">
           <div className="mb-3 ">
