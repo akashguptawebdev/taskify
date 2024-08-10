@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-6  w-full h-16">
+    <footer className="bg-black text-white py-6  w-full h-16 ">
       <div className=" mx-auto px-4">
         <div className="flex justify-center sm:justify-between items-center ">
           <div className="text-sm">
@@ -17,7 +17,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className=" text-center  text-xs py-4 text-gray-400">
+        <div className=" text-center  text-xs  text-gray-400">
           Built with ❤️ by Akash Gupta
         </div>
       </div>

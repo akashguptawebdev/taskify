@@ -14,7 +14,7 @@ const HomePage = () => {
     setTaskList(itemList);
   }, [isTaskAdded, isTaskDeleted, isTaskEdit]);
   return (
-    <div className="px-2  md:px-10  ">
+    <div className="px-2  md:px-10 h-[100vh] overflow-x-hidden">
       
       <AddTask setTaskAdded={setTaskAdded} />
       <div className="mt-10  pb-10">
