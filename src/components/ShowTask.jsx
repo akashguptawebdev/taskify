@@ -58,7 +58,7 @@ const ShowTask = ({ taskList, setTaskDeleted, setTaskList }) => {
             setTaskList={setTaskList}
           />
         ) : (
-          <div key={listItem.taskId} className="taskData mt-5 rounded-full  h-full ">
+          <div key={listItem.taskId} className="taskData mt-5 shadow-sm shadow-black  rounded-full w-[100%] h-full ">
             <div className="data rounded-full border px-5 mb-5 flex justify-between items-center">
               <div className="py-2 flex justify-center items-center">
                 <div className="roundedDiv w-4 h-4 rounded-[50%] cursor-pointer" onClick={() =>HandleCompleteTask (listItem)}>{listItem.taskCompleted? <img src="/icons8-tick.svg" />:""}</div>
