@@ -18,6 +18,9 @@ The application is deployed on vercel and can be accessed
 # Deployed URL
 To deploy the project:  https://taskifygo.vercel.app/
 
+# GitHub URL
+    https://github.com/akashguptawebdev/taskify
+    
 # Usage
 Adding a Task:
 
