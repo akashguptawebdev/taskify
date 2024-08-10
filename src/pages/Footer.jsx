@@ -17,7 +17,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="mt-6 text-center  text-xs py-5 text-gray-400">
+        <div className=" text-center  text-xs py-4 text-gray-400">
           Built with ❤️ by Akash Gupta
         </div>
       </div>
