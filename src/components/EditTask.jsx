@@ -53,7 +53,7 @@ const EditTask = ({ task, setShowEdit, listItem, setTaskList }) => {
         <div className="taskDetails  border p-5 rounded-md w-full">
           <div className="mb-3">
             <input
-              className="outline-none font-medium w-full"
+              className="outline-none font-medium w-full text-black px-2 rounded-lg"
               value={title}
               type="text"
               placeholder="Task name"
@@ -62,7 +62,7 @@ const EditTask = ({ task, setShowEdit, listItem, setTaskList }) => {
           </div>
           <div>
             <input
-              className="outline-none w-full"
+              className="outline-none w-full text-black px-2 rounded-lg"
               type="text"
               value={description}
               placeholder="Description"

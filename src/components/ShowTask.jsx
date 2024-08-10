@@ -58,13 +58,13 @@ const ShowTask = ({ taskList, setTaskDeleted, setTaskList }) => {
             setTaskList={setTaskList}
           />
         ) : (
-          <div key={listItem.taskId} className="taskData mt-5 rounded-full">
+          <div key={listItem.taskId} className="taskData mt-5 rounded-full  h-full ">
             <div className="data rounded-full border px-5 mb-5 flex justify-between items-center">
               <div className="py-2 flex justify-center items-center">
-                <div className="roundedDiv cursor-pointer" onClick={() =>HandleCompleteTask (listItem)}>{listItem.taskCompleted? <img src="/icons8-tick.svg" />:""}</div>
+                <div className="roundedDiv w-4 h-4 rounded-[50%] cursor-pointer" onClick={() =>HandleCompleteTask (listItem)}>{listItem.taskCompleted? <img src="/icons8-tick.svg" />:""}</div>
                 <div>
-                  <h6 className="font-bold text-sm  lato-regular">{listItem?.task}</h6>
-                  <p className="lato-regular">{listItem?.description}</p>
+                  <h6 className="font-bold  text-sm  lato-regular">{listItem?.task}</h6>
+                  <p className="lato-regular  text-[12px] md:text-sm text-slate-300">{listItem?.description}</p>
                 </div>
               </div>
               <div className="flex items-center">
@@ -73,8 +73,8 @@ const ShowTask = ({ taskList, setTaskDeleted, setTaskList }) => {
                 </div>
                 <div className="flex justify-center items-center">
                   <img
-                    src="/icons8-edit.svg"
-                    className="cursor-pointer mr-2 "
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkXKhxWHeTrtppeCuTY4m5fFu8eA96Mbe1mg&s"
+                    className="cursor-pointer mr-2 rounded-lg hover:shadow-lg hover:w-6 shadow-black"
                     onClick={() => HandleEdit(listItem)}
                     width="20px"
                     alt="edit"
@@ -82,7 +82,7 @@ const ShowTask = ({ taskList, setTaskDeleted, setTaskList }) => {
 
                   <img
                     src="/icons8-delete.svg"
-                    className="cursor-pointer"
+                    className="cursor-pointer hover:shadow-lg hover:w-6 shadow-black"
                     onClick={() => HandleDelete(listItem)}
                     width="20px"
                     alt="Delete"

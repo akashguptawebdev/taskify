@@ -66,12 +66,12 @@ setCurrDate(formateDate);
   };
 
   return (
-    <div className="py-10">
-      <div className="TaskList-Container flex justify-center w-full">
+    <div className="py-10 ">
+      <div className="TaskList-Container bg-indigo-200 rounded-lg flex justify-center w-full">
         <div className="taskDetails border p-5 rounded-md w-full ">
           <div className="mb-3 ">
             <input
-              className="outline-none font-medium w-full p-2 bg-[#ccfbf1] rounded-md"
+              className="outline-none font-medium w-full p-2 bg-[#292727] text-white rounded-md"
               value={task}
               type="text"
               placeholder="Task name"
@@ -80,7 +80,7 @@ setCurrDate(formateDate);
           </div>
           <div>
             <input
-              className="outline-none  w-full p-2 rounded-md bg-[#ccfbf1]"
+              className="outline-none  w-full p-2 rounded-md bg-[#292727] text-white"
               type="text"
               value={description}
               placeholder="Description"
@@ -88,12 +88,13 @@ setCurrDate(formateDate);
             />
           </div>
         </div>
+        
       </div>
 
-      <div className="border rounded-md border-t-0  text-end px-5 py-2">
+      <div className=" rounded-md border-t-0  text-end px-5 py-2">
         <button
           className={`${
-            !task ? " bg-slate-300" : " bg-[#ccfbf1]  hover:shadow-slate-400 shadow-sm text-black"
+            !task ? " bg-slate-300 text-black"  : " bg-[#d57a25]  hover:shadow-slate-400 shadow-sm text-white"
           }  py-1 px-8 rounded-full font-bold`}
           onClick={HandleAddTask}
           disabled={!task}

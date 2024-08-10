@@ -15,7 +15,7 @@ const App = () => {
   }, [isTaskAdded, isTaskDeleted, isTaskEdit]);
 
   return (
-    <div className="px-10    h-screen bg-[#155e75]">
+    <div className="px-10 container   h-screen">
       <AddTask setTaskAdded={setTaskAdded}  />
       <div className="mt-10">
         <ShowTask
