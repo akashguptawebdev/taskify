@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { uid } from 'uid';
 const AddTask = ({ setTaskAdded }) => {
   // State variables for task details, ID, and current date
   const [task, setTask] = useState("");
@@ -25,13 +25,11 @@ const AddTask = ({ setTaskAdded }) => {
 
   const HandleAddTask = async () => {
     // Generate a random task ID
-    let random = Math.floor(Math.random() * 1000);
-    let id = random + currDate.slice(23, 25) + currDate.slice(19, 21);
-    setTaskId(id);
+    const UID = uid(16)
 
     // Create the task object with all necessary details
     let listItem = {
-      taskId: taskId,
+      taskId: UID,
       task: task,
       description: description,
       currDate: currDate,
